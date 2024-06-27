@@ -24,17 +24,7 @@ public class LoginStepsDef {
         return new InventorySteps(driver);
     }
 
-    @Before(order = 0)
-    public void setUp(){
-        //setUp
-        System.setProperty("webdriver.http.factory", "jdk-http-client");
-        System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver.exe");
 
-        //crear el driver
-        driver = new ChromeDriver();
-        //max
-        driver.manage().window().maximize();
-    }
 
     @Before(order = 1)
     public void setScenario(Scenario scenario){
