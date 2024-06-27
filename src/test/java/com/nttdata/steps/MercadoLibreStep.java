@@ -15,14 +15,21 @@ public class MercadoLibreStep {
         driver.get(url);
     }
 
-    public void buscarProducto(String producto) throws InterruptedException {
-
+    public void  buscarEnBarraBusqueda(String texto) throws InterruptedException {
         WebElement barraBusqueda = driver.findElement(MercadoLibrePage.barraBusqueda);
-        barraBusqueda.sendKeys(producto);
+        barraBusqueda.sendKeys(texto);
         Thread.sleep(2000);
 
+    }
+    public void clickEnLupaBarraBusqueda() throws InterruptedException {
         WebElement botonBusqueda = driver.findElement(MercadoLibrePage.botonBusqueda);
         botonBusqueda.click();
         Thread.sleep(10000);
+    }
+
+
+    public void buscarProducto(String producto) throws InterruptedException {
+        buscarEnBarraBusqueda(producto);
+        clickEnLupaBarraBusqueda();
     }
 }
