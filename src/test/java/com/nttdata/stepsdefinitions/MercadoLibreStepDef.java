@@ -31,11 +31,12 @@ public class MercadoLibreStepDef {
         mercadolibre = new MercadoLibreStep(driver);
         mercadolibre.navegarA("https://mercadolibre.com.pe/");
 
-        Thread.sleep(10000);
+        Thread.sleep(2000);
     }
 
     @When("busco un producto {string}")
-    public void buscoUnProducto(String arg0) {
+    public void buscoUnProducto(String arg0) throws InterruptedException {
+        mercadolibre.buscarProducto(arg0);
     }
 
     @Then("una lista de resultados")
