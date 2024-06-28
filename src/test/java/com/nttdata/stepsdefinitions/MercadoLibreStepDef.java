@@ -56,10 +56,12 @@ public class MercadoLibreStepDef {
 
     @Then("una lista de resultados")
     public void unaListaDeResultados() {
+
     }
 
-    @And("valido el primer titulo del resultado")
-    public void validoElPrimerTituloDelResultado() {
+    @And("valido el primer titulo del resultado sea {string}")
+    public void validoElPrimerTituloDelResultadoSea(String arg0) {
+        mercadolibre.validarPrimerResultado(arg0);
     }
 
 
@@ -67,4 +69,6 @@ public class MercadoLibreStepDef {
         byte[] evidencia = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
         this.scenario.attach(evidencia, "image/png", "evidencias");
     }
+
+
 }
