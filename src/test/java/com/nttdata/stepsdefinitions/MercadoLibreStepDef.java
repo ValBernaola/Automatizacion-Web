@@ -43,7 +43,7 @@ public class MercadoLibreStepDef {
         mercadolibre = new MercadoLibreStep(driver);
         mercadolibre.navegarA("https://mercadolibre.com.pe/");
 
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
 
     @When("busco un producto {string}")
