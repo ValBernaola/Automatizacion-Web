@@ -10,6 +10,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -42,13 +44,14 @@ public class MercadoLibreStepDef {
     public void estoyEnLaPáginaDeMercadoLibre() throws InterruptedException {
         mercadolibre = new MercadoLibreStep(driver);
         mercadolibre.navegarA("https://mercadolibre.com.pe/");
-
+        screenShot();
         //Thread.sleep(2000);
     }
 
     @When("busco un producto {string}")
     public void buscoUnProducto(String arg0) throws InterruptedException {
         mercadolibre.buscarProducto(arg0);
+        screenShot();
     }
 
     @Then("una lista de resultados")
@@ -57,5 +60,11 @@ public class MercadoLibreStepDef {
 
     @And("valido el primer titulo del resultado")
     public void validoElPrimerTituloDelResultado() {
+    }
+
+
+    public void screenShot(){
+        byte[] evidencia = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        this.scenario.attach(evidencia, "image/png", "evidencias");
     }
 }
