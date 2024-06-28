@@ -26,15 +26,7 @@ public class LoginStepsDef {
 
 
 
-    @Before(order = 1)
-    public void setScenario(Scenario scenario){
-        this.scenario = scenario;
-    }
 
-    @After
-    public void quitDriver(){
-        driver.quit();
-    }
 
     @Dado("que me encuentro en la página de login de Saucedemo")
     public void que_me_encuentro_en_la_página_de_login_de_sacedemo() {

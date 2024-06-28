@@ -1,7 +1,9 @@
 package com.nttdata.stepsdefinitions;
 
 import com.nttdata.steps.MercadoLibreStep;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.StepDefinitionAnnotation;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -13,8 +15,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class MercadoLibreStepDef {
 
-   MercadoLibreStep mercadolibre;
-   WebDriver driver;
+    private MercadoLibreStep mercadolibre;
+    private WebDriver driver;
+    private Scenario scenario;
 
     @Before(order = 0)
     public void setUp(){
@@ -24,6 +27,15 @@ public class MercadoLibreStepDef {
 
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+    }
+    @Before(order = 1)
+    public void setScenario(Scenario scenario){
+        this.scenario = scenario;
+    }
+
+    @After
+    public void quitDriver(){
+        driver.quit();
     }
 
     @Given("estoy en la página de MercadoLibre")
