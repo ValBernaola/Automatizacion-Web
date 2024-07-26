@@ -21,24 +21,6 @@ public class MercadoLibreStepDef {
     private WebDriver driver;
     private Scenario scenario;
 
-    @Before(order = 0)
-    public void setUp(){
-        //Se ejecutará Automáticamente
-        System.setProperty("webdriver.http.factory", "jdk-http-client");
-        System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver.exe");
-
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-    }
-    @Before(order = 1)
-    public void setScenario(Scenario scenario){
-        this.scenario = scenario;
-    }
-
-    @After
-    public void quitDriver(){
-        driver.quit();
-    }
 
     @Given("estoy en la página de MercadoLibre")
     public void estoyEnLaPáginaDeMercadoLibre() throws InterruptedException {
