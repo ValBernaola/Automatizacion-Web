@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
                 "json:target/cucumber/cucumber.json"},
         stepNotifications = true,
         features = "src/test/resources/features",
-        glue = "com.nttdata.stepsdefinitions",
+        glue = "com.nttdata",
         tags = "@test"
 )
 public class RunnerTest {
