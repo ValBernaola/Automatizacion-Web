@@ -58,6 +58,12 @@
             <scope>test</scope>
         </dependency>
         <!-- Proyecto CON CUCUMBER-->
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>html2pdf</artifactId>
+            <version>4.0.2</version>
+        </dependency>
+
 
     </dependencies>
 
